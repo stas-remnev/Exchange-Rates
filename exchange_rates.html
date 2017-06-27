@@ -21,6 +21,7 @@
 			document.getElementById("chart").innerHTML = id;
 		}
 
+		// Функция рисут график
 		function drawChart(newLabel) {
 
 			var ctx = document.getElementById('myChart').getContext('2d');
@@ -30,19 +31,14 @@
 
 				type: 'line',
 				data: {
-					labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+					labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 					datasets: [{
 						label: newLabel,
 						data: [12, 19, 3, 17, 6, 3, 7, 19, 3, 17, 6, 3, 7, 19, 3, 17, 6, 3, 7, 19, 3, 17],
 						backgroundColor: "rgba(153,255,51,0.4)"
 					}]
 				}
-
-
 			});
-
-
-
 		}
 	</script>
 
@@ -95,24 +91,17 @@
 		<tr>
 			<td class="lsection">
 				<div id="table">
-
 					<form method="POST">
 						<h3>Table:</h3>
-
 						<table id="curseTable" border="1">
-
-
 						</table>
-
 					</form>
 				</div>
 			</td>
 			<td class="rsection">
 				<h3>Chart:</h3>
 				<!--Выпадающий список для выбора валюты-->
-				<select id="curselect" onchange="drawChart(this.value)">
-
-				</select>
+				<select id="curselect" onchange="drawChart(this.value)"></select>
 
 				<!--График-->
 				<div id="chart">
