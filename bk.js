@@ -5,15 +5,6 @@ var inspect = require('util-inspect');
 
 var parser = new xml2js.Parser();
 
-function r(a) {
-    fs.readFile(a, function (err, data) {
-        parser.parseString(data, function (err, result) {
-            console.log(inspect(result, false, null));
-            console.log('Done');
-        });
-    });
-}
-
 var file = fs.createWriteStream("example.xml");
 var str; 
 var now = new Date(); 
@@ -25,7 +16,7 @@ var na = 1;
 if (d<10) {d="0"+d};
 m=m+1;
 if (m<9) { m="0"+m};
-//for (var nd =1; nd<5; nd++) {
+
 var request = http.get("http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1="+d+"/"+m+"/"+(y-5)+"&date_req2="+d+"/"+m+"/"+y+"&VAL_NM_RQ=R01235", function (res) {
     str = '';
       res.setEncoding('utf8');
@@ -45,13 +36,24 @@ var request = http.get("http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1="+d+
     arr = str1.toString().split('</Value>');
     for (var i = 0; i < k; i++)
     { arr1[i] = arr[i].replace(/\D/g, '')/10000; }
-   console.log(arr1);
-   fs.open("baks.txt", "a", 0644, function(err, file_handle) {
+   //console.log(arr1);
+   
+
+   var  str3 = str2.match(/Date=............./g);
+    arr2 = str3.toString().split('Date=');
+    for (var i = 0; i < k; i++)
+    { arr3[i] = arr2[i+1].replace(/\D/g, '');
+       arr3[i] = arr3[i].charAt(0)+arr3[i].charAt(1)+"."+arr3[i].charAt(2)+arr3[i].charAt(3)+"."+arr3[i].charAt(4)+arr3[i].charAt(5)+arr3[i].charAt(6)+arr3[i].charAt(7) }
+   //console.log(arr3);
+
+fs.open("baks1.txt", "w+", 0644, function(err, file_handle) {
     if (!err) {
-    // Записываем в конец файла readme.txt фразу "Copyrighted by Me"
-    // при открытии в режиме "a" указатель уже в конце файла, и мы передаём null
-    // в качестве позиции
-    fs.write(file_handle, arr1, null, 'ascii', function(err, written) {
+         var zna4 = new Array();
+        for(z=0; z<k;z++) {
+           
+            zna4[z]=arr3[z]+":"+arr1[z];}
+            console.log(zna4);
+    fs.write(file_handle, zna4, null, 'ascii', function(err, written) {
         if (!err) {
             // Всё прошло хорошо
         } else {
@@ -70,7 +72,7 @@ var request = http.get("http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1="+d+
 
 
 const server = http.createServer((req, res) => {   
-    fs.readFile('baks.txt', function(err, data) {
+    fs.readFile('baks1.txt', function(err, data) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     res.end();
