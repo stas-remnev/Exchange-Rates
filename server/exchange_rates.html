@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+	<script>
+		function parseJSON(object) {
+			var tabletxt = "<tr><th colspan='3'> Currency</th> <th>Value</th></tr>";
+			var seltxt = "<option selected disabled>Choose a currency</option>";
+
+			for (x in object) {
+				tabletxt += "<tr><td>" + object[x].CharCode + "</td><td>" + object[x].Nominal + "</td><td>" + object[x].Name + "</td></tr>";
+				seltxt += "<option>" + object[x].CharCode + "</option>"
+			}
+			document.getElementById("curseTable").innerHTML = tabletxt;
+			document.getElementById("curselect").innerHTML = seltxt;
+		}
+
+		function redraw() {
+			//document.getElementById("myForm").submit();
+			if (document.getElementById("curselect").selectedIndex > 0) AjaxFormRequest("myForm");
+		}
+
+		// Функция рисут график
+		function drawChart(newLabel, dataString) {
+			var ctx = document.getElementById('myChart').getContext('2d');
+
+			var myChart = new Chart(ctx, {
+
+				type: 'line',
+				data: {
+					labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+					datasets: [{
+						label: newLabel,
+						data: dataString.split(","),
+						backgroundColor: "rgba(153,255,51,0.4)"
+					}]
+				}
+			});
+		}
+
+		function AjaxFormRequest(formId) {
+			var form = $('#' + formId);
+			jQuery.ajax({
+				url: form.attr("action"),
+				type: "GET",
+				data: form.serialize(),
+				success: function(response) {
+					drawChart(document.getElementById("curselect").value, response);
+				},
+				error: function(response) {
+					alert("error");
+				}
+			});
+		}
+	</script>
+
+	<style>
+		body {
+			margin: 0;
+		}
+
+		table td {
+			vertical-align: top;
+			padding: 25px;
+		}
+
+		#curseTable {
+			text-align: center;
+			border-collapse: collapse;
+		}
+
+		#curseTable th {
+			padding: 10px;
+		}
+
+		#curseTable td {
+			padding: 15px 25px;
+		}
+	</style>
+
+	<title>Exchange rates</title>
+</head>
+
+<body>
+	<table id="page">
+		<tr colspan="2">
+			<td>
+				<h2>Exchange rates for today</h2>
+			</td>
+		</tr>
+		<tr>
+			<td class="lsection">
+				<div id="table">
+					<h3>Table:</h3>
+					<table id="curseTable" border="1">
+					</table>
+				</div>
+			</td>
+			<td class="rsection">
+				<h3>Chart:</h3>
+				<form id="myForm">
+					<!--Выбор валюты и интервала времени-->
+					<p>
+						<select id="curselect" onchange="redraw()"></select>
+						From: <input type="date" name="from" id="from" min="2017-01-01" onchange="redraw()"> 
+						to: <input type="date" name ="to" id="to" onchange="redraw()">
+					</p>
+				</form>
+				<!--График-->
+				<div id="chart">
+					<canvas id="myChart"></canvas>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		$.getJSON("data_json.js", function( data ) {
+			parseJSON(data);
+		});
+		var today = new Date();
+		document.getElementById("to").valueAsDate = today;
+		document.getElementById("from").valueAsDate = new Date(today.setDate(today.getDate()-7));
+	</script>
+</body>
+
+</html>
