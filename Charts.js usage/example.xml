@@ -1,122 +1,144 @@
-<?xml version="1.0" encoding="windows-1251" ?>
-<ValCurs Date="02.03.2002" name="Foreign Currency Market">
-<Valute ID="R01010">
-	<NumCode>036</NumCode>
-	<CharCode>AUD</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Австралийский доллар</Name>
-	<Value>16,0102</Value>
-</Valute>
-<Valute ID="R01035">
-	<NumCode>826</NumCode>
-	<CharCode>GBP</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Фунт стерлингов Соединенного королевства</Name>
-	<Value>43,8254</Value>
-</Valute>
-<Valute ID="R01090">
-	<NumCode>974</NumCode>
-	<CharCode>BYR</CharCode>
-	<Nominal>1000</Nominal>
-	<Name>Белорусских рублей</Name>
-	<Value>18,4290</Value>
-</Valute>
-<Valute ID="R01215">
-	<NumCode>208</NumCode>
-	<CharCode>DKK</CharCode>
-	<Nominal>10</Nominal>
-	<Name>Датских крон</Name>
-	<Value>36,1010</Value>
-</Valute>
-<Valute ID="R01235">
-	<NumCode>840</NumCode>
-	<CharCode>USD</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Доллар США</Name>
-	<Value>30,9436</Value>
-</Valute>
-<Valute ID="R01239">
-	<NumCode>978</NumCode>
-	<CharCode>EUR</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Евро</Name>
-	<Value>26,8343</Value>
-</Valute>
-<Valute ID="R01310">
-	<NumCode>352</NumCode>
-	<CharCode>ISK</CharCode>
-	<Nominal>100</Nominal>
-	<Name>Исландских крон</Name>
-	<Value>30,7958</Value>
-</Valute>
-<Valute ID="R01335">
-	<NumCode>398</NumCode>
-	<CharCode>KZT</CharCode>
-	<Nominal>100</Nominal>
-	<Name>Казахстанских тенге</Name>
-	<Value>20,3393</Value>
-</Valute>
-<Valute ID="R01350">
-	<NumCode>124</NumCode>
-	<CharCode>CAD</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Канадский доллар</Name>
-	<Value>19,3240</Value>
-</Valute>
-<Valute ID="R01535">
-	<NumCode>578</NumCode>
-	<CharCode>NOK</CharCode>
-	<Nominal>10</Nominal>
-	<Name>Норвежских крон</Name>
-	<Value>34,7853</Value>
-</Valute>
-<Valute ID="R01589">
-	<NumCode>960</NumCode>
-	<CharCode>XDR</CharCode>
-	<Nominal>1</Nominal>
-	<Name>СДР (специальные права заимствования)</Name>
-	<Value>38,4205</Value>
-</Valute>
-<Valute ID="R01625">
-	<NumCode>702</NumCode>
-	<CharCode>SGD</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Сингапурский доллар</Name>
-	<Value>16,8878</Value>
-</Valute>
-<Valute ID="R01700">
-	<NumCode>792</NumCode>
-	<CharCode>TRL</CharCode>
-	<Nominal>1000000</Nominal>
-	<Name>Турецких лир</Name>
-	<Value>22,2616</Value>
-</Valute>
-<Valute ID="R01720">
-	<NumCode>980</NumCode>
-	<CharCode>UAH</CharCode>
-	<Nominal>10</Nominal>
-	<Name>Украинских гривен</Name>
-	<Value>58,1090</Value>
-</Valute>
-<Valute ID="R01770">
-	<NumCode>752</NumCode>
-	<CharCode>SEK</CharCode>
-	<Nominal>10</Nominal>
-	<Name>Шведских крон</Name>
-	<Value>29,5924</Value>
-</Valute>
-<Valute ID="R01775">
-	<NumCode>756</NumCode>
-	<CharCode>CHF</CharCode>
-	<Nominal>1</Nominal>
-	<Name>Швейцарский франк</Name>
-	<Value>18,1861</Value>
-</Valute>
-<Valute ID="R01820">
-	<NumCode>392</NumCode>
-	<CharCode>JPY</CharCode>
-	<Nominal>100</Nominal>
-	<Name>Японских иен</Name>
-	<Value>23,1527</Value>
-</Valute>
-</ValCurs>
+example = '[{
+  "ValCurs": {
+    "-Date": "02.03.2002",
+    "-name": "Foreign Currency Market",
+    "Valute": [
+      {
+        "-ID": "R01010",
+        "NumCode": "036",
+        "CharCode": "AUD",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ",
+        "Value": "16,0102"
+      },
+      {
+        "-ID": "R01035",
+        "NumCode": "826",
+        "CharCode": "GBP",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+        "Value": "43,8254"
+      },
+      {
+        "-ID": "R01090",
+        "NumCode": "974",
+        "CharCode": "BYR",
+        "Nominal": "1000",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ",
+        "Value": "18,4290"
+      },
+      {
+        "-ID": "R01215",
+        "NumCode": "208",
+        "CharCode": "DKK",
+        "Nominal": "10",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ",
+        "Value": "36,1010"
+      },
+      {
+        "-ID": "R01235",
+        "NumCode": "840",
+        "CharCode": "USD",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ",
+        "Value": "30,9436"
+      },
+      {
+        "-ID": "R01239",
+        "NumCode": "978",
+        "CharCode": "EUR",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅ",
+        "Value": "26,8343"
+      },
+      {
+        "-ID": "R01310",
+        "NumCode": "352",
+        "CharCode": "ISK",
+        "Nominal": "100",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ",
+        "Value": "30,7958"
+      },
+      {
+        "-ID": "R01335",
+        "NumCode": "398",
+        "CharCode": "KZT",
+        "Nominal": "100",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ",
+        "Value": "20,3393"
+      },
+      {
+        "-ID": "R01350",
+        "NumCode": "124",
+        "CharCode": "CAD",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ",
+        "Value": "19,3240"
+      },
+      {
+        "-ID": "R01535",
+        "NumCode": "578",
+        "CharCode": "NOK",
+        "Nominal": "10",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ",
+        "Value": "34,7853"
+      },
+      {
+        "-ID": "R01589",
+        "NumCode": "960",
+        "CharCode": "XDR",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)",
+        "Value": "38,4205"
+      },
+      {
+        "-ID": "R01625",
+        "NumCode": "702",
+        "CharCode": "SGD",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ",
+        "Value": "16,8878"
+      },
+      {
+        "-ID": "R01700",
+        "NumCode": "792",
+        "CharCode": "TRL",
+        "Nominal": "1000000",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ",
+        "Value": "22,2616"
+      },
+      {
+        "-ID": "R01720",
+        "NumCode": "980",
+        "CharCode": "UAH",
+        "Nominal": "10",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ",
+        "Value": "58,1090"
+      },
+      {
+        "-ID": "R01770",
+        "NumCode": "752",
+        "CharCode": "SEK",
+        "Nominal": "10",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ",
+        "Value": "29,5924"
+      },
+      {
+        "-ID": "R01775",
+        "NumCode": "756",
+        "CharCode": "CHF",
+        "Nominal": "1",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ",
+        "Value": "18,1861"
+      },
+      {
+        "-ID": "R01820",
+        "NumCode": "392",
+        "CharCode": "JPY",
+        "Nominal": "100",
+        "Name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ",
+        "Value": "23,1527"
+      }
+    ]
+  }
+}]'
