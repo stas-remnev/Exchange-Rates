@@ -89,10 +89,6 @@
 		<tr colspan="2">
 			<td>
 				<h2>Exchange rates for today</h2>
-				<select id="bankselect" onchange="change_myselect(this.value)">
-					<option value="cbank">ЦБ РФ</option>
-					<option value="othbank">Другой банк</option>
-				</select>
 			</td>
 		</tr>
 		<tr>
@@ -109,7 +105,7 @@
 					<!--Выбор валюты и интервала времени-->
 					<p>
 						<select id="curselect" onchange="redraw()"></select>
-						From: <input type="date" name="from" id="from" min="2000-01-01" onchange="redraw()"> 
+						From: <input type="date" name="from" id="from" min="2017-01-01" onchange="redraw()"> 
 						to: <input type="date" name ="to" id="to" onchange="redraw()">
 					</p>
 				</form>
@@ -127,7 +123,7 @@
 		});
 		var today = new Date();
 		document.getElementById("to").valueAsDate = today;
-		document.getElementById("from").valueAsDate = new Date(today.setDate(today.getDate()-28));
+		document.getElementById("from").valueAsDate = new Date(today.setDate(today.getDate()-7));
 	</script>
 </body>
 
