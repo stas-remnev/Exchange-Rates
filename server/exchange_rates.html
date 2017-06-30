@@ -23,18 +23,67 @@
 			if (document.getElementById("curselect").selectedIndex > 0) AjaxFormRequest("myForm");
 		}
 
-		// Функция рисут график
+		// // Функция рисут график
+		// function drawChart(newLabel, dataString) {
+		// 	var ctx = document.getElementById('myChart').getContext('2d');
+
+		// 	var myChart = new Chart(ctx, {
+
+		// 		type: 'line',
+		// 		data: {
+		// 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		// 			datasets: [{
+		// 				label: newLabel,
+		// 				data: dataString.split(","),
+		// 				backgroundColor: "rgba(153,255,51,0.4)"
+		// 			}]
+		// 		}
+		// 	});
+		// }
+
+		
+		// Функция рисует график
 		function drawChart(newLabel, dataString) {
+			var from = Date.parse(document.getElementById("to").value)
+			var to = Date.parse(document.getElementById("from").value)
+
+
+			var dataArray = dataString.split(",")
+			var labelsArray = []
+
+			// var fromDay = (from + 1970) / 86400000
+			// var fromMonth = fromDay / 30
+			// var fromYear = fromMonth / 12
+
+			// var toDay = to / 86400000
+			// var toMonth = toDay / 30
+			// var toYear = toMonth / 12
+
+			// console.log("from" + fromDay + "-" + fromMonth + "-" + fromYear)
+			// console.log(fromDay)
+
+			// Количество миллисекунд в выбранном диапазоне
+			var daysCount = Date.parse(document.getElementById("to").value) - Date.parse(document.getElementById("from").value)
+			// Перевод миллисекунд в дни
+			daysCount /= 86400000
+			// console.log(daysCount)
+
+			var step = Math.floor(daysCount / 10)
+
+
+			for (i = 1; i <= dataArray.length; i++) {
+				var pushed = labelsArray.push(i)
+			}
+			// console.log(dataArrayNew)
+
 			var ctx = document.getElementById('myChart').getContext('2d');
-
 			var myChart = new Chart(ctx, {
-
 				type: 'line',
 				data: {
-					labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+					labels: labelsArray,
 					datasets: [{
 						label: newLabel,
-						data: dataString.split(","),
+						data: dataArray,
 						backgroundColor: "rgba(153,255,51,0.4)"
 					}]
 				}
