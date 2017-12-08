@@ -1,0 +1,35 @@
+{
+  "env": {
+   "browser": true,
+   "node": true,
+   "jquery": true
+ },
+
+ "rules": {  
+  "no-undef": "error",
+  "no-unused-vars": [
+    "warn",
+    { "vars": "all", "args": "none", "ignoreRestSiblings": true }
+  ],
+
+  "no-cond-assign": "error",
+  "no-dupe-args": "error",
+  "no-dupe-keys": "error",
+  "no-duplicate-case": "error",
+  "no-empty": "warn",
+  "no-invalid-regexp": "error",
+  "no-sparse-arrays": "error",
+  "no-unreachable": "error",
+
+  "no-self-compare": "error",
+  "no-useless-concat": "error",
+  "no-useless-return": "error",
+
+  "indent": ["warn", "tab", { "SwitchCase": 1 }],
+  "no-mixed-spaces-and-tabs": "warn",
+  "no-trailing-spaces": "warn",
+  "eol-last": ["warn", "never"],
+  "comma-spacing": ["warn", { "before": false, "after": true }],
+  "comma-dangle": ["error", "never"]
+ }
+}
