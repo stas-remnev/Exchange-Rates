@@ -9,7 +9,6 @@
 		function parseJSON(object) {
 			var tabletxt = "<tr><th colspan='3'> Currency</th> <th>Value</th></tr>";
 			var seltxt = "<option selected disabled>Choose a currency</option>";
-
 			for (x in object) {
 				tabletxt += "<tr><td>" + object[x].CharCode + "</td><td>" + object[x].Nominal + "</td><td>" + object[x].Name + "</td></tr>";
 				seltxt += "<option>" + object[x].CharCode + "</option>"
@@ -17,12 +16,12 @@
 			document.getElementById("curseTable").innerHTML = tabletxt;
 			document.getElementById("curselect").innerHTML = seltxt;
 		}
-
 		function redraw() {
 			//document.getElementById("myForm").submit();
 			if (document.getElementById("curselect").selectedIndex > 0) AjaxFormRequest("myForm");
 		}
-		
+
+
 		// Функция рисует график
 		function drawChart(newLabel, dataString) {
 			var from = Date.parse(document.getElementById("to").value)
@@ -70,17 +69,16 @@
 				}
 			});
 		}
-
 		function AjaxFormRequest(formId) {
 			var form = $('#' + formId);
 			jQuery.ajax({
 				url: form.attr("action"),
 				type: "GET",
 				data: form.serialize(),
-				success: function(response) {
+				success: function (response) {
 					drawChart(document.getElementById("curselect").value, response);
 				},
-				error: function(response) {
+				error: function (response) {
 					alert("error");
 				}
 			});
@@ -119,6 +117,10 @@
 		<tr colspan="2">
 			<td>
 				<h2>Exchange rates for today</h2>
+				<select id="bankselect" onchange="change_myselect(this.value)">
+					<option value="cbank">ЦБ РФ</option>
+					<option value="othbank">Другой банк</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -134,9 +136,8 @@
 				<form id="myForm">
 					<!--Выбор валюты и интервала времени-->
 					<p>
-						<select id="curselect" onchange="redraw()"></select>
-						From: <input type="date" name="from" id="from" min="2017-01-01" onchange="redraw()"> 
-						to: <input type="date" name ="to" id="to" onchange="redraw()">
+						<select id="curselect" onchange="redraw()"></select> From: <input type="date" name="from" id="from" min="2000-01-01"
+						 onchange="redraw()"> to: <input type="date" name="to" id="to" onchange="redraw()">
 					</p>
 				</form>
 				<!--График-->
@@ -148,12 +149,12 @@
 	</table>
 
 	<script type="text/javascript">
-		$.getJSON("data_json.js", function( data ) {
+		$.getJSON("data_json.js", function (data) {
 			parseJSON(data);
 		});
 		var today = new Date();
 		document.getElementById("to").valueAsDate = today;
-		document.getElementById("from").valueAsDate = new Date(today.setDate(today.getDate()-7));
+		document.getElementById("from").valueAsDate = new Date(today.setDate(today.getDate() - 28));
 	</script>
 </body>
 
